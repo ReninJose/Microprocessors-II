@@ -1,4 +1,6 @@
-// Author: Renin Kingsly Jose, Edited by Jhonny Nhem and Alex Skinner; EECE 4520, Prof. Liang-Min Wang
+// Author: Renin Kingsly Jose,
+// Edited by Johnny Nhem and Alex Skinner; 
+// EECE 4520, Prof. Liang-Min Wang
 // Lab 1: Traffic Light Controller
 
 #define RED 22
@@ -10,8 +12,8 @@
 // Const boolean variable to check if button is pressed
 // LOW/false = Button Pressed
 const bool pressed = false;
-bool check = true;           // To check if button is pressed
-bool invert = HIGH;         // To invert LED's state
+bool check = true;           
+bool invert = HIGH;          // To invert LED's state
 
 void setup() {
   // Setup LEDs
@@ -38,7 +40,7 @@ void setup() {
     }
     // 1-sec delay
     delay(1000);
-    check = digitalRead(SWITCH);
+    check = digitalRead(SWITCH);    // Checks button's input 
   }
 }
 
