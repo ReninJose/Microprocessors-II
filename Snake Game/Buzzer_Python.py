@@ -113,7 +113,18 @@ while True:
     # elif control_information == 's':
     #     head.direction = "down"
     # elif ......
-    #
+
+    # Input from serial port
+    if ser.read() == "up":
+        go_up()
+    elif ser.read() == "down":
+        go_down()
+    elif ser.read() == "left":
+        go_left()
+    elif ser.read() == "right":
+        go_right()
+
+    move()
 
     # Check for a collision with the border
     if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
