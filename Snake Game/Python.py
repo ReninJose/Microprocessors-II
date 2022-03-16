@@ -14,7 +14,7 @@ import serial
 # need to change based on the particular host machine
 # TODO uncomment the following two lines to initialize serial port
 serialDevFile = '/dev/tty.usbmodem14601'
-ser=serial.Serial('COM5', 9600, timeout=0)
+ser=serial.Serial('COM3', 9600, timeout=0)
 
 delay = 0.1
 
@@ -114,17 +114,21 @@ while True:
     #     head.direction = "down"
     # elif ......
 
-    # Input from serial port
-    if ser.read() == "up":
+    # JOYSTICK CODE STARTS
+    arduino_data = ser.readline().rstrip()
+
+    if arduino_data == b"up":
         go_up()
-    elif ser.read() == "down":
+    elif arduino_data == b"down":
         go_down()
-    elif ser.read() == "left":
+    elif arduino_data == b"left":
         go_left()
-    elif ser.read() == "right":
+    elif arduino_data == b"right":
         go_right()
 
     move()
+    # JOYSTICK CODE ENDS
+
 
     # Check for a collision with the border
     if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
