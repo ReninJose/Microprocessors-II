@@ -1,4 +1,4 @@
-//EECE 4520: Lab 2: 3/20-22/22: The code implimented for the Joystick, reading the analog 
+//EECE 4520: Lab 2: 3/20-22/22: The code implimented for the python game, reading the analog 
 // pins read, then writing the result to the python code for its game.
 
 #include <SoftwareSerial.h>
