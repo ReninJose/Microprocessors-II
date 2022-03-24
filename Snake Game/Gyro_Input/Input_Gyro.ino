@@ -133,8 +133,8 @@ void loop() {
   //Then, apply the desired values; and then print it to the python program.
   //Originally, I was going to have simply the x-rotation and y-rotation, however its very unprecise
 
-  Y_Ori = -Orientation[2] * 180/M_PI;
-  X_Ori = -Orientation[1] * 180/M_PI;
+  Y_Ori = -Orientation[1] * 180/M_PI;
+  X_Ori = -Orientation[2] * 180/M_PI;
   
   Serial.print(" 'Y' Orientation: ");
   Serial.print(Y_Ori);
@@ -144,16 +144,16 @@ void loop() {
   Serial.print("\n \n");
   
   
-  if(X_Ori >= 20){
+  if(X_Ori >= 10){
     Serial.write("right\n");
   }
-  else if(X_Ori <= -20){
+  else if(X_Ori <= -10){
     Serial.write("left\n");
   }
-  else if(Y_Ori >= 20){
+  else if(Y_Ori >= 10){
     Serial.write("up\n");
   }
-  else if(Y_Ori <= -20){
+  else if(Y_Ori <= -10){
     Serial.write("down\n");
   }
 
