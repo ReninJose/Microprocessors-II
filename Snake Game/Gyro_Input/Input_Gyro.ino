@@ -98,28 +98,9 @@ void loop() {
   
   float X_Ori, Y_Ori; //state two floating-point variables, alpha and omiga
   //if MPU6050 DMP status to error, the program stop working
-
- if (!Ready)
-   //return;
-
- if (!GyroInterrupt && FifoCount < PacketSize) // wait for MPU interrupt or extra packet(s) available
-   return;
-   
- GyroInterrupt = false;  // reset interrupt flag and get INT_STATUS byte
  
  IntStatus = Gyro_Read.getIntStatus(); // get current FIFO count
  FifoCount = Gyro_Read.getFIFOCount();
-
- // check for overflow (this should never happen unless our code is too inefficient)
- if ((IntStatus & 0x10) || FifoCount == 1024){
-
-   Gyro_Read.resetFIFO();  // reset so we can continue cleanly
-   Serial.println("FIFO overflow!");
-   // otherwise, check for DMP data ready interrupt (this should happen frequently)
-   
- }
- else if (IntStatus & 0x02) { // wait for correct available data length, should be a VERY short wait
-  
 
  while (FifoCount < PacketSize) 
    FifoCount = Gyro_Read.getFIFOCount();
@@ -173,5 +154,5 @@ void loop() {
   
 
   delay(100);
- }
+ 
 }
